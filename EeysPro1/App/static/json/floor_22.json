@@ -1,0 +1,30 @@
+[
+	{
+		"id":7,
+		"img":"img/img/2f_7.jpg",
+		"price":"￥78.00",
+		"name":"妆美堂DECORATIVE月抛2片装",
+		"sales":"第二盒立减20元"
+	},
+	{
+		"id":8,
+		"img":"img/img/2f_8.jpg",
+		"price":"￥35.00",
+		"name":"诺思Airtime摩登女郎月抛3片装（3色）",
+		"sales":"拍四免一，立省35元"
+	},
+	{
+		"id":9,
+		"img":"img/img/2f_9.jpg",
+		"price":"￥55.00",
+		"name":"心の拉花美妆月抛3片装",
+		"sales":"买二赠二"
+	},
+	{
+		"id":10,
+		"img":"img/img/2f_10g.jpg",
+		"price":"￥25.00",
+		"name":"海昌HAPPY GO月抛1片装",
+		"sales":"拍四免一，立省25元"
+	}
+]

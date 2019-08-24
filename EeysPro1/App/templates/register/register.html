@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+        {% load static %}
+		<link rel="stylesheet" href="{% static 'css/kede.css' %}" type="text/css"/>
+		<link rel="stylesheet" href="{% static 'css/register.css' %}" type="text/css"/>
+		
+		<script src="{% static 'js/jquery-1.12.0.js' %}"></script>
+{#		<script src="{% static 'js/jquery.cookie.js' %}"></script>#}
+    	<script type="text/javascript" src="{% static 'js/kedeJQ.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/register.js' %}"></script>
+    	
+	</head>
+	<body>
+		<div id="page">
+			<!--页面头部-->
+			<div class="header">
+				<div class="top">
+					<!--头部左侧-->
+					<div class="h_left">
+						<img src="{% static 'img/img/h_icon1.png' %}">
+						<a href="#">收藏可得网</a>
+					</div>				
+					<div class="float_left">
+						您好，欢迎光临可得眼镜网！<a href="{% url 'logoin' %}" class="login" id="login">登录</a>
+						<a href="{% url 'register' %}" class="register">[免费注册]</a>
+					</div>
+					
+					<!--头部右侧菜单栏-->
+					<div class="float_right">
+						<span class="menu_top"><a href="#">我的礼券</a></span>
+						<span class="menu_tab"><a href="#">我的可得<img src="{% static 'img/img/arrow1.png' %}"></a>
+							<ul class="sub_item">
+								<li><a href="#">我的订单</a></li>
+								<li><a href="#">我的收藏</a></li>
+								<li><a href="#">积分兑换</a></li>
+								<li><a href="#">我的验光单</a></li>				
+							</ul>
+						</span>
+						
+						<span class="menu_tab"><a href="#">帮助中心<img src="{% static 'img/img/arrow1.png' %}"></a>
+							<ul class="sub_item">
+								<li><a href="#">常见问题</a></li>
+								<li><a href="#">退货换货</a></li>
+								<li><a href="#">快递查询</a></li>
+								<li><a href="#">眼镜学堂</a></li>
+								<li><a href="#">礼券使用</a></li>
+							</ul>
+						</span>
+						<span class="line">|</span>
+						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png' %}"><a href="#">购物车<b id="gwc_count">0</b>件</a></span>
+						<span class="phone"><img src="{% static 'img/img/h_icon3.png' %}"><a href="#">手机版</a>
+							<img src="{% static 'img/img/h_code.png' %}" id="h_code" />
+						</span>
+						<span id="tel"><img src="{% static 'img/img/h_icon4.png' %}" id="imgs"><a href="#" id="chart">客服电话：4006-20-20-20（9:00-23:45）</a>
+							<div id="chartWay" >
+								<p>请选择发起聊天方式：</p>
+								<img src="{% static 'img/img/fancy_close.png' %}" id="close">
+								<div class="tel_img" id="imgs1"><img src="{% static 'img/img/qq.png' %}" /></div>
+								<div class="tel_img"><img src="{% static 'img/img/weixin.png' %}" /></div>
+								<span>安装QQ</span>
+							</div>
+						</span>
+					</div>
+				</div>				
+			</div>
+		<div class="logo">
+			<div>
+				<a href="#">
+					<img src="{% static 'img/img/logo.jpg' %}">
+				</a>
+				<h2>欢迎注册</h2>
+			</div>
+		</div>
+		
+		<div class="main">
+			<p class="register">我已经注册，<a href="{% url 'logoin' %}"><span >立即登录</span>&gt;</a></p>
+			<form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+				<div class="r_left">
+					<div class="r_left_main">
+						<ul class="right_top">
+                            <p style="color: red">{{ username_msg }}</p>
+							<li class="user">
+								<p class="name us"><em>*</em>账号名：</p>
+								<input type="text" maxlength="20"  class="text-box" id="RUserName" name="username" placeholder="用户名/邮箱/手机">
+								<span STYLE="color: red" class="r_remind name_remind"></span>
+							</li>
+							
+							<li>
+                            	<p class="name pw"><em>*</em>设置密码：</p>
+                            	<input type="password" id="RPassword" name="password" class="text-box" placeholder="6-20位">
+                            	<span class="r_remind pwd_remind"></span>
+                           </li>
+                            <p style="color: red">{{ password_msg }}</p>
+                            <li>
+                            	<p class="name conf"><em>*</em>确认密码：</p>
+                            	<input type="password" id="RRePassword" name="repassword" class="text-box" placeholder="6-20位">
+                            	<span class="r_remind conf_remind"></span>
+                           </li>
+                           
+                             <p style="color: red">{{ verify_msg  }}</p>
+                            <li class="verify">
+                            	<p class="name"><em>*</em>验证码：</p>
+                            	<input type="text" id="regValidate" name="validates" class="text-box">
+                            	<img class="txt" src="{% url 'verify' %}"/>
+                                <span class="{{ verify_msg }}"></span>
+                            </li >
+                             
+						</ul>
+						
+						<ul class="right_bottom">
+							<li class="li1">
+								<input type="submit" class="registerSlide" id="RegisterSumbitBtn" value="提交注册" >
+							</li>
+							
+							<li class="li2">	                          
+	                            <input type="checkbox" checked="checked" id="agree">
+	                            <span>我已同意并阅读</span>	
+	                            <a href="#"><span>《可得用户注册协议》</span></a>
+	                            <span class="r_remind check_remind"></span>
+	                        </li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="d_line"></div>
+            	<div class="d_right">
+            		<a href="#"><img src="{% static 'img/img_d/login.jpg' %}"/></a>
+            	</div>
+			</form>
+		</div>
+   
+			
+{#			<button id="clearCart">清除</button>#}
+		</div>
+	</body>
+</html>

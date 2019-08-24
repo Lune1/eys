@@ -1,0 +1,34 @@
+[
+	{
+		"id":1,
+		"imgs":"img/img/banner_6d00b7.jpg",
+		"color":"rgb(109, 0, 183)"
+	},
+	
+	{
+		"id":2,
+		"imgs":"img/img/banner_bg1.jpg",
+		"color":"rgb(255, 241, 17)"
+	},
+	{
+		"id":3,
+		"imgs":"img/img/banner_bg2.jpg",
+		"color":"rgb(203, 231, 235)"
+	},
+	{
+		"id":4,
+		"imgs":"img/img/banner_bg3.jpg",
+		"color":"rgb(42, 169, 250)"
+	},
+	{
+		"id":5,
+		"imgs":"img/img/banner_bg4.jpg",
+		"color":"rgb(146, 217, 255)"
+	},
+	{
+		"id":6,
+		"imgs":"img/img/banner_bg5.jpg",
+		"color":"rgb(111, 186, 241)"
+	}
+
+]

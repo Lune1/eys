@@ -1,0 +1,35 @@
+*{margin: 0;padding: 0;}
+.logo{height: 57px;padding:52px 0 34px 200px;}
+.logo a,.logo h2{float: left;}
+.logo img{width: 196px;display: block;}
+.logo h2{line-height: 81px;margin-left: 20px;color: #666;font-size: 24px;font-weight: 100;}
+.main{position: relative;width: 990px;height: 440px;margin: 0 auto;}
+.main a{color: #6D9D03;}
+.main a:hover,.main a:hover span{color: #f60;}
+.register{color: #666;float: right;height: 32px;line-height: 32px;}
+.register a span{font-size: 12px;display: inline;padding-right: 5px;line-height: 32px;color: #6c9d03;}
+.box{height: 398px;background: #fff;border: 1px solid #ccc;clear: right;}
+.r_left{width: 490px;margin-top: 30px;float: left;}
+.r_left_main{width: 340px;margin: 0 auto;}
+.right_top{color: #999;}
+.right_top li{position: relative;height: 56px;}
+.r_left_main{width: 356px;}
+.right_top .name{width: 95px;text-align: right;height: 32px;line-height: 32px;color: #333;font-size: 14px;}
+.right_top li p{float: left;}
+.right_top li em{color: #f60;margin-right: 4px;font-size: 14px;}
+.right_top li input{width: 238px;height:30px;text-indent: 5px;line-height: 30px;border: 1px solid #ccc;}
+.r_remind{color: #f60; width: 320px;height: 24px;display: inline-block;margin-left: 94px;}
+
+.right_top div{margin-left: 94px;}
+.right_top .verify input{width: 106px;text-indent: 5px;}
+.verify .txt{width: 80px;height: 30px;margin: 0 40px 0 10px;border: 1px solid #ccc;float: right;background: #6D9D03;color: white;font-size: 16px;font-weight: bold;text-align: center;line-height: 30px;}
+.box .right_bottom{margin-top: 2px;}
+.right_bottom  .li1,.right_bottom .li2{position: relative;width: 248px;left: 94px;bottom: 3px;padding-right: 0;}
+#RegisterSumbitBtn{color: #fff;}
+.registerSlide{margin-bottom: 7px;cursor: pointer;width: 240px;height: 36px;border-radius: 3px;font-size: 16px;font-weight: bold;letter-spacing: 2px;background: #FF6600;border: 0;}
+.registerSlide:hover{opacity: 0.8;}
+.li2 #agree{height: 12px;margin-right: 5px;vertical-align: middle;}
+.d_line{height: 298px;width: 1px;background: #ccc;float: left;margin-top: 50px;}
+.d_right{float: right;padding-top: 46px;width: 490px;}
+input{outline: none;}
+.verify img{float: right;margin: 20px 30px}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		{% load static %}
+        <link rel="shortcut icon" href="{% static 'img/img/favicon.ico' %}" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/kede.css' %}"/>
+
+		<script src="{% static 'js/jquery-1.12.0.js' %}"></script>
+
+{#    	<script src="{% static 'js/jquery.cookie.js' %}"></script>#}
+    	<script src="{% static 'js/cart.js' %}"></script>
+    	<script src="{% static 'js/order_detail.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/logoin.js' %}"></script>
+
+
+	</head>
+	<body>
+		<div id="page">
+			<!--页面头部-->
+			<div class="header">
+				<div class="top">
+					<!--头部左侧-->
+					<div class="h_left">
+						<img src="{% static 'img/img/h_icon1.png' %}">
+						<a href="#">收藏可得网</a>
+					</div>
+					<div class="float_left">
+						您好，欢迎光临可得眼镜网！<a href="{% url 'logoin' %}" class="login">登录</a>
+						<a href="{% url 'register' %}" class="register">[免费注册]</a>
+					</div>
+
+					<!--头部右侧菜单栏-->
+					<div class="float_right">
+						<span class="menu_top"><a href="#">我的礼券</a></span>
+						<span class="menu_tab"><a href="{% url 'orderdetail' %}">我的订单<img src="{% static 'img/img/arrow1.png' %}"></a>
+							<ul class="sub_item">
+								<li><a href="#">我的订单</a></li>
+								<li><a href="#">我的收藏</a></li>
+								<li><a href="#">积分兑换</a></li>
+								<li><a href="#">我的验光单</a></li>
+							</ul>
+						</span>
+
+						<span class="menu_tab"><a href="#">帮助中心<img src="{% static 'img/img/arrow1.png' %}"></a>
+							<ul class="sub_item">
+								<li><a href="#">常见问题</a></li>
+								<li><a href="#">退货换货</a></li>
+								<li><a href="#">快递查询</a></li>
+								<li><a href="#">眼镜学堂</a></li>
+								<li><a href="#">礼券使用</a></li>
+							</ul>
+						</span>
+						<span class="line">|</span>
+						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png' %}"><a href="{% url 'cart' %}">购物车<b id="gwc_count">{{ cart_num }}</b>件</a></span>
+						<span class="phone"><img src="{% static 'img/img/h_icon3.png' %}"><a href="#">手机版</a>
+							<img src="{% static 'img/img/h_code.png' %}" id="h_code" />
+						</span>
+						<span id="tel"><img src="{% static 'img/img/h_icon4.png' %}" id="imgs"><a href="#" id="chart">客服电话：4006-20-20-20（9:00-23:45）</a>
+							<div id="chartWay">
+								<p>请选择发起聊天方式：</p>
+								<img src="{% static 'img/img/fancy_close.png' %}" id="close">
+								<div class="tel_img" id="imgs1"><img src="{% static 'img/img/qq.png' %}"></div>
+								<div class="tel_img"><img src="{% static 'img/img/weixin.png' %}"></div>
+								<span>安装QQ</span>
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+
+
+    	<!--购物车step content开始-->
+
+			<div class="cart_content">
+				<div class="cart_table" id="cartContainer">
+		                <ul class="cart_explain">
+                            <li><div class="e_product">商品</div></li>
+                            <li><div class="e_luminosity"></div></li>
+                            <li><div class="e_quantity">数量</div></li>
+                            <li><div class="e_price">单价(元)</div></li>
+                            <li><div class="e_subtotal">小计(元)</div></li>
+                            <li><div class="e_operation"></div></li>
+                        </ul>
+
+		            <!--添加商品-->
+		            <div id="cartItemContainer" class="cart_product">
+		            	<div class="cartItemContainer">
+                            {% for product in products %}
+                                <div class="cart_product_item">
+
+                                    <ul class="cart_product_ul">
+                                        <li class="product">
+                                            <a href="#">
+                                                <img src="{% static product.goods.showimg %}" alt="">
+                                            </a>
+                                            <lable class="product_name">
+                                                {{ product.goods.showname }}
+                                            </lable>
+                                        </li>
+                                        <li class="quantity" >
+                                            <p class="minus">
+                                                -
+                                            </p>
+                                            <input type='text' id= 'quantity_input' value='{{ product.num }}' class="quantity_input"/>
+                                            <p class="plus">
+                                                +
+                                            </p>
+                                        </li>
+                                        <li class="price">
+                                            ￥<span class="item_line_height">{{ product.goods.showprice }}</span>
+                                        </li>
+                                        <li class="subtotal">
+                                            ￥<span class="item_line_height"></span>
+                                        </li>
+                                        <li class="operation">
+                                            <div class="item_line_height">
+
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            {% endfor %}
+                        </div>
+		            </div>
+
+		    		<!--删除确认框-->
+					<div id="conform" style="left:450px;top: 18px;">
+						<div class="delect_title">
+							<i></i>
+						</div>
+						<div class="delect_text">
+							<label>确定要删除吗？删除后可在回收站找回</label>
+						</div>
+						<div class="delect_true">删除</div>
+						<div class="delect_false">不删除</div>
+					</div>
+
+				</div>
+
+	            <div class="cart_continue">
+	        		<i></i><a href="{% url 'kede' %}" style="color: #333; font-size: 14px;" id="cart_continue">继续购物</a>
+	    		</div>
+
+
+			</div>
+
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,156 @@
+.wide_page_top{height: 135px;}
+.cart_content{width: 998px;margin: 0 auto;}
+.wide_page_top_cont{height: 80px;padding-top: 20px;position: relative;}
+.wide_page_top_cont .logo{position: absolute;left: 0px;bottom: 20px;width: 196px;height: 56px;}
+.wide_page_top_cont .logo_type{height: 57px;line-height: 57px;color: #666;font-size: 18px;position: absolute;top: 29px;left: 205px;}
+.wide_page_top_cont .progress_bg_1{width: 490px;height: 28px;position: absolute;right:0px;top: 39px;overflow: hidden;}
+.wide_page_top_cont .progress_bg_1 img{width: 490px;height: 28px;}
+.progress_1,.progress_2,.progress_3{position: absolute;top: 70px;color: #666;}
+.progress_1{right: 380px;}
+.progress_2{right: 210px;}
+.progress_3{right: 45px;}
+
+
+.cart_content{width: 998px;margin: 0 auto;}
+.cart_table { border:1px solid #ccc;height: auto; overflow: hidden; }
+.cart_table .cart_explain { background-color:#f9f9f9; height:30px; }
+.cart_table li { float:left; }
+.cart_table li div{ height:30px; line-height:30px; text-align:center; float:left; font-size:14px; }
+.cart_explain .e_product { width:420px; margin-left:20px; _margin-left:10px; }
+ .cart_explain .e_luminosity { width:120px; }
+ .cart_explain .e_quantity { width:100px; }
+ .cart_explain .e_price { width:110px; }
+ .cart_explain .e_subtotal { width:110px; }
+ .cart_explain .e_operation { width:88px; }
+
+ .cart_product_item { width:997px; border-top:1px solid #ccc; color:#666; }
+
+.cart_continue{width: 90px;height: 40px;color: #333;font-size: 14px;line-height: 40px;padding: 0 21px;cursor: pointer;}
+.cart_continue i {width: 10px;height: 10px;float: left;margin: 16px 10px 0 0;background: url(../img/img/tubiao.png)no-repeat;display: block;overflow: hidden;background-position: -15px -729px;}
+.cart_continue a{color: #333;font-size: 14px;}
+
+.cart_meet{border: 1px solid #ccc;}
+.cart_meet_more{border-top: 1px solid #ccc;background: #fff6ee;padding: 0 20px 10px 20px;margin-top: -1px;}
+.cart_meet_more p{padding: 10px 0 0 0;color: #666;}
+.cart_meet_more b{padding: 0 5px;color: #fff;background: #f60;margin-right: 10px;}
+
+.cart_ticket{width: 494px;border: 1px solid #ccc;margin-top: 20px;position: relative;}
+.cart_ticket .ticket_cont{height: 41px;line-height: 41px;color: #666;font-size: 14px;}
+.ticket_cont i{width: 15px;height: 15px;float: left;cursor: pointer;margin: 13px 10px 0 20px;background: url(../img/img/tubiao.png)no-repeat;display: block;overflow: hidden;background-position: -89px -911px;}
+.ticket_cont .float-left{float: left;}
+.ticket_select_i i{width: 22px;height: 22px;float: right;background: url(../img/img/tubiao.png)no-repeat;display: block;overflow: hidden;background-position: -124px -911px;cursor: pointer;}
+.ticket_select_input{width: 217px;height: 22px;float: left;text-align: center;margin-left: 1px;margin-top: 8px;}
+.ticket_btn{float: left;width: 70px;height: 24px;margin: 9px 0 0 25px;font-size: 14px;background: #f60;color: #fff;line-height: 24px;text-align: center;border-radius: 3px;cursor: pointer;}
+.ticket_alert{width: 452px;line-height: 30px;margin: 0 19px;border-top: 1px dotted #ccc;color: #f60;}
+
+.cart_aggregate{width: 990px;color: #666;margin-top: 40px;text-align: center;font-size: 14px;line-height: 24px;}
+.cart_aggregate div{float: right;}
+.hj_jg,.lq_jg,.yh_jg{width: 120px;}
+.hj_name,.yh_name,.lq_name{width: 90px;}
+.cart_aggregate b{color: #f60;font-weight: 100;}
+
+.aggregate{width: 990px;border-top: 1px solid #ccc;padding: 15px 0 8px 0;margin-top: 15px;line-height: 40px;}
+.aggregate_btn{width: 190px;height: 34px;line-height: 34px;background: #f60;color: #fff;text-align: center;font-size: 16px;border-radius: 3px;cursor: pointer;}
+.aggregate_zj .a_zj,.aggregate_zj .a_jf{font-weight: bold;font-size: 24px;line-height: 34px;margin-right: 20px;}
+.aggregate_zj b label{font-size: 14px;}
+.aggregate_zj .a_jf{color: #690;}
+
+
+/*添加商品*/
+.cart_product_item{width: 997px;border-top: 1px solid #ccc;color: #666;height:100px;}
+.cart_product_item a{color: #666;font-size: 12px;}
+.product_name{width: 340px;height: 58px;line-height: 58px;margin-left: 10px;overflow: hidden;float: left;}
+.cart_product_ul .product,.cart_product_ul .luminosity,.cart_product_ul .quantity,.cart_product_ul .price,.cart_product_ul .subtotal,.cart_product_ul .operation{float: left;padding: 10px 0;}
+.cart_product_ul .product{width: 420px;margin-left: 20px;}
+.product p{margin-top: 25px}
+
+.quantity{width: 100px;margin-left: 120px;height: 100%}
+.cart_product_ul .price,.cart_product_ul .subtotal{width: 110px;line-height: 60px;text-align: center;}
+.price{margin:0 0 0 10px;}
+.cart_product_ul .subtotal{color: #FF6600;}
+.cart_product_ul .operation{width: 70px;padding: 10px 0 0 10px;}
+.operation  #save,.operation #delete{cursor: pointer;}
+.quantity .minus,.quantity .plus{background: #eee;}
+/*.cart_product_ul .quantity span{line-height: 20px;}*/
+
+/*购物车为空*/
+.cart_null{width: 989px;height: 180px;font-size: 14px;line-height: 20px;padding-top: 10px;display: none;}
+.cart_null_text{width: 400px;margin: 50px 0 0 295px;}
+.cart_null_text i{width: 43px;height: 38px;background: url(../img/img/tubiao.png)no-repeat;display: block;overflow: hidden;background-position: -337px -357px;float: left;margin-right: 20px;}
+.cart_null_text a{color: #690;font-size: 12px;}
+.cart_null_text a b{padding-left: 5px;}
+
+
+/*登录*/
+#quickLogin2{position: fixed;top: 60px;left: 380px;display:none;z-index: 10000;}
+.login_zz{width: 100%;height: 100%;opacity: 0.3;position: fixed;top: 0;left: 0;z-index: 10000;display: block;}
+.login_cont_bg{padding: 10px;color: #666;background: #b4b4b4;position: fixed;z-index: 10000;margin-top: 20px;}
+.login_title{width: 400px;height: 20px;line-height: 20px;background: #f5f5f5;font-size: 14px;padding: 10px;}
+.login_title i {width: 14px;height: 14px;float: right;margin: 3px 0 0 0;background-position: -26px 0px;}
+i{background: url(../img/img_d/login_box.png)no-repeat;display: block;overflow: hidden;}
+.login_cont{width: 320px;padding: 30px 50px;background: #fff;}
+
+.login_text{ height:25px;}
+.login_text span{ font-size:14px; float:left; }
+.login_text div{ font-size:14px; color:#f60; float:right; cursor:pointer; }
+.login_text i{ width:13px; height:13px; margin:3px 5px 0 0; float:right; background-position:-72px -1px;}
+
+ /*账户密码输入框*/
+.login_inpt{ height:30px; line-height:30px; border:1px solid #ccc; border-color: rgb(144,195,31); }
+.login_inpt input{ width:245px; height:30px; float:left; border-width:0px; padding:0px; color:#999;font-size: 14px;font-weight: 500;border-width: 0px; outline: none;}
+.name_i,
+.password_i{ width:24px; height:24px; float:left; margin:3px 8px 3px 3px;}
+.login_inpt .password_input{ width:275px;}
+
+.name_i{ background-position:-26px -17px;}
+.password_i{ background-position:0px -17px;}
+.name_close{ width:12px; height:12px; margin:9px; float:right; background-position:-51px -17px; display:none;}
+
+ /*提示信息*/
+.name_remind,
+.password_remind,
+.verify_remind,
+.remember_remind{ font-size:12px; line-height:20px; width:320px; height:20px; margin-bottom:5px; color:#f60;}
+.verify_remind{ float:left;}
+
+/*验证码*/
+.verify{ height:55px; }
+.verify input{ width:100px; height:28px; float:left; border:1px solid #f60; padding:0px; color:#999; outline:none;}
+.verify .verify_div{ float:left; margin:0px 15px;width: 80px;height: 28px;border: 1px solid #ccc;line-height: 28px;text-align: center;color: #659B05;font-size: 14px;font-weight: bold;}
+.verify .verify_text{ float:left; font-size:12px; line-height:30px; color:#90c31f; cursor:pointer;cursor: pointer; }
+
+ /*记住密码*/
+.remember{ font-size:12px; height:25px; line-height:25px;}
+.remember span{ float:left; margin:0 5px 0 0;}
+.remember .remember_name_i,
+.remember .auto_name_i{ width:12px; height:12px; float:left; margin:7px 2px 0 0;}
+.remember .on{ background-position:-13px 0;}
+.remember_remind{ width:100px; height:25px; line-height:25px; margin-bottom:0px;}
+.remember .remember_forget{ margin:0; cursor:pointer;float: right;}
+.remember .remember_forget a{ text-align:right; color:#90c31f;}
+
+/*登录按钮*/
+.login_btn{ width:200px; height:34px; padding-left:120px; line-height:34px; letter-spacing:50px; color:#fff; background-color:#f60; cursor:pointer; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius: 3px; }
+/*新用户*/
+.new_user{ height:20px; line-height:20px; font-size:12px; margin-top:10px;}
+#quickLogin2  .new_user a{ color:#f60; cursor:pointer;}
+/*合作平台*/
+.cooperation{ height:59px; margin-top:10px;}
+.cooperation_text{ font-size:12px;}
+.cooperation_icon i{ float:left; width:32px; height:32px; margin:10px 10px 0 0; cursor:pointer; }
+.icon_qq{ background-position:0 -42px;}
+.icon_weibo{ background-position:0 -75px;}
+.icon_zfb{ background-position:0 -108px;}
+.icon_qq:hover{ background-position:-33px -42px;}
+.icon_weibo:hover{ background-position:-33px -75px;}
+.icon_zfb:hover{ background-position:-33px -108px;}
+
+
+/*删除部分*/
+#conform{width: 420px;height: 150px;border: 6px solid #ccc;background: #fff;position: fixed;z-index: 10000;display: none;}
+.delect_title{height: 40px;line-height: 40px;font-size: 14px;text-indent: 20px;color: #666;}
+.delect_title i{background: url(../img/img/tubiao.png)no-repeat;display: block;overflow: hidden;width: 14px;height: 14px;float: right;background-position: -107px -912px;margin: 12px 20px 0 0;cursor: pointer;}
+.delect_text{height: 26px;line-height: 26px;font-size: 14px;color: #f60;text-align: center;}
+.delect_true,.delect_false{cursor:pointer;width: 100px;height: 30px;line-height: 30px;text-align: center;font-size: 14px;position: absolute;top: 90px;border: 1px solid #f60;}
+.delect_false{background: #fff;color: #f60;left: 220px;}
+.delect_true{background: #f60;color: #fff;left: 100px;}

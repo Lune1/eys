@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alipay</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'img/img/favicon.ico' %}" type="image/x-icon">
+</head>
+<body>
+    <h2>支付宝</h2>
+    <h3>订单号为：{{ orderid }}的订单正在进行支付...</h3>
+    <button style="height: 50px;width: 100px;background: orangered;color: white;font-size: 34px" id="pay" orderid="{{ orderid }}">支付</button>
+
+    {% load static %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <script>
+        $.ajaxSetup({
+            data:{csrfmiddlewaretoken:'{{ csrf_token }}'}
+        })
+    </script>
+</body>
+</html>

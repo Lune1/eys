@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        {% load static %}
+		<title>{{ show_product.showname }}</title>
+
+        <link rel="shortcut icon" href="{% static 'img/img/favicon.ico' %}" type="image/x-icon">
+    	<meta name="Keywords" content="眼镜,眼镜网,隐形眼镜,隐形眼镜网,美瞳,配眼镜">
+    	<link rel="stylesheet" href="{% static 'css/kede.css' %}" type="text/css"/>
+    	<link rel="stylesheet" href="{% static  'css/dingdan.css' %}" type="text/css"/>
+
+    	<script src="{% static 'js/jquery-1.12.0.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/kedeJQ.js' %}"></script>
+    	<script src="{% static 'js/jquery.fly.min.js' %}"></script>
+    	
+    	<script type="text/javascript" src="{% static 'js/dingdan.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/magnifiter.js' %}"></script>
+    	<script src="{% static 'js/light.js' %}"></script>
+{#    	<script src="{% static 'js/jquery.cookie.js' %}"></script>#}
+    	<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    		
+    	
+	</head>
+	<body>
+		<div id="page">
+			<!--页面头部-->
+			<div class="header">
+				<div class="top">
+					<!--头部左侧-->
+					<div class="h_left">
+						<img src="{% static 'img/img/h_icon1.png' %}">
+						<a href="#">收藏可得网</a>
+					</div>				
+					<div class="float_left">
+						您好，欢迎光临可得眼镜网！<a href="{% url 'logoin' %}" class="login">登录</a>
+						<a href="{% url 'register' %}" class="register">[免费注册]</a>
+					</div>
+
+					<!--头部右侧菜单栏-->
+					<div class="float_right">
+						<span class="menu_top"><a href="#">我的礼券</a></span>
+						<span class="menu_tab"><a href="#">我的可得<img src="{% static 'img/img/arrow1.png' %}"></a>
+							<ul class="sub_item">
+								<li><a href="{% url 'orderdetail' %}">我的订单</a></li>
+								<li><a href="#">我的收藏</a></li>
+								<li><a href="#">积分兑换</a></li>
+								<li><a href="#">我的验光单</a></li>
+							</ul>
+						</span>
+
+						<span class="menu_tab"><a href="#">帮助中心<img src="{% static 'img/img/arrow1.png' %}"></a>
+							<ul class="sub_item">
+								<li><a href="#">常见问题</a></li>
+								<li><a href="#">退货换货</a></li>
+								<li><a href="#">快递查询</a></li>
+								<li><a href="#">眼镜学堂</a></li>
+								<li><a href="#">礼券使用</a></li>
+							</ul>
+						</span>
+						<span class="line">|</span>
+						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png' %}"><a href="{% url 'cart' %}">购物车<b id="gwc_count">{{ cart_num }}</b>件</a></span>
+						<span class="phone"><img src="{% static 'img/img/h_icon3.png' %}"><a href="#">手机版</a>
+							<img src="{% static 'img/img/h_code.png' %}" id="h_code" />
+						</span>
+						<span id="tel"><img src="{% static 'img/img/h_icon4.png' %}" id="imgs"><a href="#" id="chart">客服电话：4006-20-20-20（9:00-23:45）</a>
+							<div id="chartWay">
+								<p>请选择发起聊天方式：</p>
+								<img src="{% static 'img/img/fancy_close.png' %}" id="close">
+								<div class="tel_img" id="imgs1"><img src="{% static 'img/img/qq.png' %}"></div>
+								<div class="tel_img"><img src="{% static 'img/img/weixin.png' %}"></div>
+								<span>安装QQ</span>
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="logo">
+				<div class="logo_left">
+						<img src="{% static 'img/img/logo.jpg' %}">
+					</div>
+				<div class="logo_icon">
+						<img src="{% static 'img/img/logo_icon.png' %}">
+
+					</div>
+				<div class="logo_right">
+						<div id="search">
+							<div class="search_left">
+								<i class="search_icon"><img src="{% static 'img/img/search.png' %}"/></i>
+								<input type="text" id="txt" placeholder="请输入搜索关键词"/>
+							</div>
+							<div class="search_right">
+								<input type="button" value="搜索" class="btn"/>
+							</div>
+						</div>
+
+						<div class="search_bottom">
+							<span class="s_hot">热门搜索：</span>
+							<a href="#">博士伦</a>
+							<a href="#">强生舒曰</a>
+							<a href="#">海昌星眸</a>
+							<a href="#">傲滴乐明</a>
+						</div>
+					</div>
+			</div>
+			<!--主菜单兰部分-->
+			<div class="main">
+				<div class="main_nav">
+					<div class="main_content">
+						<ul class="nav">							
+							<li><a href="#">首页</a></li>
+							<li><a href="#">彩 瞳</a></li>
+							<li><a href="#">隐形眼镜</a></li>
+							<li><a href="#">护理用品</a></li>
+							<li><a href="#">框架眼镜</a></li>
+							<li><a href="#">美妆个护</a></li>
+							<li><a href="#">积分商城</a></li>
+							<li><a href="#">博士伦专区</a></li>							
+						</ul>
+						
+						<div class="main_left">
+							<h3>全部商品分类<img src="{% static 'img/img/fenlei.png' %}"/></h3>
+							<ul class="left_menu" >
+								<li class="l_list">
+									<i><img src="{% static 'img/img/main_1.png' %}" /></i>
+									<a href="#">透明隐形眼镜</a>
+									<b>&gt;</b>
+									 <div class="l_list_line"></div>
+									<!--透明隐形眼镜的左边内容-->
+									<div class="left_div">
+										<ul class="child_list">
+											<li class="child_list_dt">品牌<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">博士伦</a></span>
+												<a href="#">强生</a>
+												<a href="#">视康爱尔</a>
+												<span><a href="#">库博</a></span>
+												<a href="#">海昌</a>
+												<a href="#">卫康</a>
+												<a href="#">美若康</a>
+												<span><a href="#">Miru米如</a></span>
+												<a href="#">依视明</a>
+												<a href="#">奥克拉</a>
+												<a href="#">科莱博</a>
+												<a href="#">菲士康</a>
+												<a href="#">海俪恩</a>
+												<a href="#">蔡司</a>
+												<a href="#">茵洛</a>
+												<a href="#">SAP思汉普</a>
+												<a href="#">更多品牌<b>&gt;&gt;</b></a>
+											</li>
+
+											<li class="child_list_dt">周期<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">日抛</a></span>
+												<a href="#">双周抛</a>
+												<a href="#">月抛</a>
+												<a href="#">季抛</a>
+												<span><a href="#">半年抛</a></span>
+												<a href="#">年抛</a>
+											</li>
+
+											<li class="child_list_dt">含水量<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">43-69%</a></span>
+												<a href="#">38-42%</a>
+												<a href="#">37%</a>
+											</li>
+
+
+											<li class="child_list_dt">定制<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">高度近视</a></span>
+												<a href="#">近视散光</a>
+												<a href="#">远视散光</a>
+											</li>
+
+											<li class="child_list_dt">热门<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">硅水凝胶(超长戴)</a></span>
+												<a href="#">防紫外线(抗UV)</a>
+												<a href="#">防眼干/眼红</a>
+											</li>
+										</ul>
+
+										<ul class="child_list_right">
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a2.jpg' %}"></a></li>
+							            </ul>
+									</div>
+								</li>
+
+								<li class="l_list">
+									<i><img src="{% static 'img/img/main_2.png' %}" /></i>
+									<a href="#">彩色隐形眼镜</a>
+									<b>&gt;</b>
+									<div class="l_list_line"></div>
+									<div class="left_div">
+										<ul class="child_list">
+											<li class="child_list_dt">品牌<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">博士伦</a></span>
+												<a href="#">强生</a>
+												<a href="#">视康爱尔</a>
+												<span><a href="#">库博</a></span>
+												<a href="#">海昌</a>
+												<a href="#">卫康</a>
+												<a href="#">美若康</a>
+												<span><a href="#">Miru米如</a></span>
+												<a href="#">依视明</a>
+												<a href="#">奥克拉</a>
+												<a href="#">科莱博</a>
+												<a href="#">菲士康</a>
+												<a href="#">海俪恩</a>
+												<a href="#">蔡司</a>
+												<a href="#">茵洛</a>
+												<a href="#">SAP思汉普</a>
+												<a href="#">更多品牌<b>&gt;&gt;</b></a>
+											</li>
+
+											<li class="child_list_dt">周期<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">日抛</a></span>
+												<a href="#">双周抛</a>
+												<a href="#">月抛</a>
+												<a href="#">季抛</a>
+												<span><a href="#">半年抛</a></span>
+												<a href="#">年抛</a>
+											</li>
+
+											<li class="child_list_dt">色系<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<a href="#">黑色</a>
+												<span><a href="#">棕色</a></span>
+												<a href="#">灰色</a>
+												<a href="#">蓝色</a>
+												<a href="#">紫色</a>
+												<a href="#">粉色</a>
+												<a href="#">绿色</a>
+											</li>
+											<li class="child_list_dt">直径<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<a href="#">&le;13.5mm</a>
+												<a href="#">13.6mm-14.00mm</a>
+												<span><a href="#">&ge;14.1mm</a></span>
+											</li>
+
+											<li class="child_list_dt">价格<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<a href="#">&lt;100元</a>
+												<a href="#">100-199元</a>
+												<span><a href="#">200-199元</a></span>
+											</li>
+
+											<li class="child_list_dt">热门<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">自然甜美</a></span>
+												<span><a href="#">大直径m</a></span>
+												<a href="#">个性混血</a>
+												<span><a href="#">小圆环(增大增亮)</a></span>
+												<a href="#">蕾丝花纹</a>
+												<span><a href="#">男生美瞳</a></span>
+											</li>
+										</ul>
+
+										<ul class="child_list_right">
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/cp_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/cp_a2.jpg' %}"></a></li>
+							            </ul>
+									</div>
+								</li>
+
+								<li class="l_list">
+									<i><img src="{%  static 'img/img/main_3.png' %}" /></i>
+									<a href="#">护理用品</a>
+									<b>&gt;</b>
+									<div class="l_list_line"></div>
+									<div class="left_div">
+										<ul class="child_list">
+											<li class="child_list_dt">护理液<b>&gt;</b></li>
+											<li class="child_list_dd">
+											  	<span> <a href="#" target="_blank">爱尔康</a></span>
+							                    <span><a href="#">博士伦</a></span>
+							                    <a href="#" target="_blank">海昌</a>
+							                    <a href="#" target="_blank">科莱博</a>
+							                    <span><a href="#" target="_blank">珍视明</a></span>
+							                    <a href="#">海俪</a>
+							                    <span><a href="#">卫康</a></span>
+							                    <a href="#">安娜苏</a>
+							                    <a href="#">沙福</a>
+							                    <a href="#">美汐</a>
+							                    <a href="#">诺思</a>
+							                    <a href="#">全能</a>
+							                    <a href="#">优能</a>
+							                    <a href="#">蔡司</a>
+							                    <a href="#">滴润</a>
+							                    <a href="#">LENBERT澜柏</a>
+							                    <a href="#">滴润</a>
+							                    <a href="#">沙福</a>
+                								<a href="#">更多品牌<b>&gt;&gt;</b></a>
+											</li>
+
+											<li class="child_list_dt">热门<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<a href="#">促销装</a>
+												<a href="#">旅行装</a>
+												<a href="#">原装进口</a>
+												<a href="#">彩瞳专用</a>
+												<span><a href="#">双氧水</a></span>
+											</li>
+											<li class="child_list_dt"><b></b></li>
+							                <li class="child_list_dd">
+							                    <span><a href="#">RGP硬性隐形眼护理液</a></span>
+							                    <a href="#">隐形眼镜润眼液</a>
+							                </li>
+
+											 <li class="child_list_dt">工具<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#">伴侣盒</a>
+							                    <a href="#" target="_blank">双联盒/镊子</a>
+							                    <a href="#" target="_blank">超声波清洗器</a>
+							                    <a href="#" target="_blank">取戴器</a>
+							                </li>
+										</ul>
+
+										<ul class="child_list_right">
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a2.jpg' %}"></a></li>
+							            </ul>
+									</div>
+								</li>
+
+
+								<li class="l_list">
+									<i><img src="{% static 'img/img/main_4.png' %}" /></i>
+									<a href="#">近视眼镜</a>
+									<b>&gt;</b>
+									<div class="l_list_line"></div>
+									<div class="left_div">
+										<ul class="child_list">
+											<li class="child_list_dt">品牌<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">博士伦</a></span>
+												<a href="#">强生</a>
+												<a href="#">视康爱尔</a>
+												<span><a href="#">库博</a></span>
+												<a href="#">海昌</a>
+												<a href="#">卫康</a>
+												<a href="#">美若康</a>
+												<span><a href="#">Miru米如</a></span>
+												<a href="#">依视明</a>
+												<a href="#">奥克拉</a>
+												<a href="#">科莱博</a>
+												<a href="#">菲士康</a>
+												<a href="#">海俪恩</a>
+												<a href="#">蔡司</a>
+												<a href="#">茵洛</a>
+												<a href="#">SAP思汉普</a>
+												<a href="#">更多品牌<b>&gt;&gt;</b></a>
+											</li>
+
+											<li class="child_list_dt">款式<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">男款</a>
+							                    <a href="#" target="_blank">女款</a>
+							                </li>
+
+							                <li class="child_list_dt">风格<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">商务</a>
+							                    <a href="#" target="_blank">休闲</a>
+							                    <a href="#" target="_blank">复古</a>
+							                    <a href="#" target="_blank">潮款</a>
+							                    <a href="#" target="_blank">学生</a>
+							                </li>
+
+							                <li class="child_list_dt">框形<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">大框</a>
+							                    <a href="#" target="_blank">方框</a>
+							                    <a href="#" target="_blank">圆框</a>
+							                    <a href="#" target="_blank">半框</a>
+							                    <a href="#" target="_blank">无框</a>
+							                </li>
+
+							                <li class="child_list_dt">材质<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">MEGA-TR钛塑</a>
+							                    <a href="#" target="_blank">板材</a>
+							                    <a href="#" target="_blank">金属</a>
+							                    <a href="#" target="_blank">塑钢</a>
+							                    <a href="#" target="_blank">纯钛</a>
+							                    <a href="#" target="_blank">TR90&amp;金属</a>
+							                </li>
+
+							                 <li class="child_list_dt">价格<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">&lt;100元</a>
+							                    <a href="#" target="_blank">100-299元</a>
+							                    <a href="#" target="_blank">300-500元</a>
+							                    <a href="#" target="_blank">&gt;500元</a>
+							                </li>
+										</ul>
+										<ul class="child_list_right">
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/bp_a2.jpg' %}"></a></li>
+							            </ul>
+									</div>
+								</li>
+
+								<li class="l_list">
+									<i><img src="{% static 'img/img/main_5.png' %}" /></i>
+									<a href="#">太阳眼镜</a>
+									<b>&gt;</b>
+									<div class="l_list_line"></div>
+									<div class="left_div">
+										<ul class="child_list">
+											<li class="child_list_dt">品牌<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<span><a href="#">博士伦</a></span>
+												<a href="#">强生</a>
+												<a href="#">视康爱尔</a>
+												<span><a href="#">库博</a></span>
+												<a href="#">海昌</a>
+												<a href="#">卫康</a>
+												<a href="#">美若康</a>
+												<span><a href="#">Miru米如</a></span>
+												<a href="#">依视明</a>
+												<a href="#">奥克拉</a>
+												<a href="#">科莱博</a>
+												<a href="#">菲士康</a>
+												<a href="#">海俪恩</a>
+												<a href="#">蔡司</a>
+												<a href="#">茵洛</a>
+												<a href="#">SAP思汉普</a>
+												<a href="#">更多品牌<b>&gt;&gt;</b></a>
+											</li>
+
+											<li class="child_list_dt">款式<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">男款</a>
+							                    <a href="#" target="_blank">女款</a>
+							                    <a href="#" target="_blank">儿童款</a>
+							                </li>
+
+											<li class="child_list_dt">框型<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">蛤蟆镜</a>
+							                    <a href="#" target="_blank">大框</a>
+							                    <a href="#" target="_blank">偏圆框</a>
+							                    <a href="#" target="_blank">偏方框</a>
+							                </li>
+
+							                <li class="child_list_dt">材质<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">MEGA-TR钛塑</a>
+							                    <a href="http://www.kee#" target="_blank">金属</a>
+							                    <a href="#" target="_blank">板材</a>
+							                </li>
+
+							                <li class="child_list_dt">价格<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">&lt;100元</a>
+							                    <a href="#" target="_blank">100-299元</a>
+							                    <a href="#" target="_blank">300-500元</a>
+							                    <a href="#" target="_blank">&gt;500元</a>
+							                </li>
+
+							                <li class="child_list_dt">热门<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">偏光太阳镜</a>
+							                    <a href="#" target="_blank">近视太阳镜</a>
+							                    <a href="#" target="_blank">儿童太阳镜</a>
+							                </li>
+										</ul>
+										<ul class="child_list_right">
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/dao_a3g.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/dao_a4.jpg' %}"></a></li>
+							            </ul>
+
+									</div>
+								</li>
+
+								<li class="l_list">
+									<i><img src="{%  static 'img/img/main_6.png' %}" /></i>
+									<a href="#">功能眼镜</a>
+									<b>&gt;</b>
+									<div class="l_list_line"></div>
+									<div class="left_div">
+										<ul class="child_list">
+											<li class="child_list_dt">热门<b>&gt;</b></li>
+											<li class="child_list_dd">
+												<a href="#" target="_blank">防辐射眼镜</a>
+							                    <a href="#" target="_blank">偏光太阳镜</a>
+							                    <a href="#" target="_blank">近视太阳镜</a>
+							                    <a href="#" target="_blank">儿童太阳镜</a>
+											</li>
+
+											<li class="child_list_dt">运动镜<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">运动镜</a>
+							                    <a href="#" target="_blank">近视游泳镜</a>
+							                    <a href="#" target="_blank">司机驾驶镜</a>
+							                </li>
+
+							                <li class="child_list_dt">老花镜<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">老花镜</a>
+							                    <a href="#" target="_blank">吉祥</a>
+							                    <a href="#" target="_blank">方圆</a>
+							                    <a href="#" target="_blank">Podreader</a>
+							                    <a href="#" target="_blank">原点</a>
+							                </li>
+
+							                 <li class="child_list_dt">配件<b>&gt;</b></li>
+							                <li class="child_list_dd">
+							                    <a href="#" target="_blank">框架配件</a>
+							                    <a href="#" target="_blank">镜盒/镜布</a>
+							                    <a href="#http://www.keede.com/yjhlgj.html" target="_blank">护理剂/鼻垫</a>
+							                </li>
+										</ul>
+										<ul class="child_list_right">
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/dao_a5.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{%  static 'img/img/dao_a6.jpg' %}"></a></li>
+							            </ul>
+									</div>
+								</li>
+
+								<li class="l_list">
+									<i><img src="{% static 'img/img/main_7.png' %}" /></i>
+									<a href="#">美妆个护</a>
+									<b>&gt;</b>
+									<div class="l_list_line"></div>
+									<div class="left_div">
+										<ul class="child_list">
+											<li class="child_list_dt">护肤清洁<b>&gt;</b></li>
+											<li class="child_list_dd">
+											 	<a href="#" target="_blank">CeraVe</a>
+							                    <span><a href="#" target="_blank">雅漾</a></span>
+							                    <a href="#" target="_blank">赫俪妃</a>
+							                    <a href="#" target="_blank">面膜</a>
+							                    <a href="#" target="_blank">祛痘</a>
+							                    <a href="#" target="_blank">清洁</a>
+							                    <span><a href="#" target="_blank">自然乐园</a></span>
+							                    <a href="#" target="_blank">美迪惠尔</a>
+							                    <span><a href="#" target="_blank">兰芝</a></span>
+							                    <span> <a href="#" target="_blank">资生堂</a></span>
+											</li>
+
+											<li class="child_list_dt">眼部保健<b>&gt;</b></li>
+											 <li class="child_list_dd">
+							                    <a href="#" target="_blank">珍视明</a>
+							                    <a href="#tml" target="_blank">Visine优能</a>
+							                    <a href="#" target="_blank">蒸汽眼罩</a>
+							                    <a href="#" target="_blank">护眼贴</a>
+							                    <a href="#" target="_blank">洗眼液</a>
+							                    <a href="#" target="_blank">珂俪维</a>
+                							</li>
+
+                							<li class="child_list_dt">清洁防护<b>&gt;</b></li>
+                							 <li class="child_list_dd">
+							                    <a href="#" target="_blank">洗手液</a>
+							                    <a href="#" target="_blank">口罩</a>
+							                    <a href="#" target="_blank">龙虎</a>
+							                </li>
+
+							                <li class="child_list_dt">时尚彩妆<b>&gt;</b></li>
+							 				<li class="child_list_dd">
+							                    <a href="#" target="_blank">小奥汀</a>
+							                    <span><a href="#" target="_blank">妆美堂</a></span>
+							                    <span><a href="#" target="_blank">奇士美</a></span>
+							                    <a href="#" target="_blank">Sweet Color</a>
+							                    <a href="#" target="_blank">美甲</a>
+							              </li>
+										</ul>
+
+										<ul class="child_list_right">
+							                <li class="child_list_imgup"><a href="#" target="_blank"><img src="{% static 'img/img/mz_a1.jpg' %}"></a></li>
+							                <li class="child_list_imgdown"><a href="#" target="_blank"><img src="{% static 'img/img/mz_a2.jpg' %}"></a></li>
+							            </ul>
+									</div>
+								</li>
+
+							</ul>
+						</div>
+					</div>		
+				</div>	
+				
+				<div class="site_map">
+					<div class="site_map_img"></div>
+					<div>当前位置</div>
+					<div class="site_map_arrows">&gt;</div>
+					<div><a href="#">可得眼镜网</a></div>
+					<div class="site_map_arrows">&gt;</div>
+					<div><a href="#">透明隐形眼镜</a></div>
+					<div class="site_map_arrows">&gt;</div>
+					<div><a href="#">强生 |  舒日</a></div>
+				</div>
+			
+				<div class="d_content">
+					<div class="details_top">
+						<div class="d_float_left">
+							
+							{% if show_product.showname == '强生舒日隐形眼镜日抛30片装' %}
+                                <div class="details_top_img">
+                                    <img src="{% static 'img/img_d/20160919083310_67.jpg' %}" class="smallImg" id="d_img1"/>
+                                    <img src= "{% static 'img/img_d/20160919083310_68.jpg' %}" class="smallImg"/>
+                                    <img src= "{% static  'img/img_d/20160919083311_70.jpg' %}" class="smallImg"/>
+                                    <img src= "{% static 'img/img_d/20160919083312_72.jpg' %}" class="smallImg"/>
+                                    <div id="smallArea" style="display: block; width: 100px; height: 100px; background: rgba(200, 255, 200, 0.3); position: absolute; left: 75px; top: 90px;" >
+                                    </div>
+                                </div>
+                                <div id="bigArea">
+                                    <img src="{% static 'img/img_d/20160919083310_67.jpg' %}" class="bigImg"/>
+                                    <img src= "{% static 'img/img_d/20160919083310_68.jpg' %}" class="bigImg"/>
+                                    <img src= "{% static 'img/img_d/20160919083311_70.jpg' %}" class="bigImg"/>
+                                    <img src= "{% static 'img/img_d/20160919083312_72.jpg' %}" class="bigImg"/>
+                                </div>
+                                <div class="details_top_img_s">
+								<div id="sleft" class="sleft"><i></i></div>
+        						<div id="sright" class="sright"><i></i></div>
+        						<div id="slist" class="slist">
+	            					<ul style="width: 304px;">
+	            						<li class="hover">
+	            							<img src="{% static 'img/img_d/20160919083300_18.jpg' %}" />
+	            						</li>
+	            						<li>
+	            							<img src="{% static 'img/img_d/20160919083300_19.jpg' %}" />
+	            						</li>
+	            						<li>
+	            							<img src="{% static 'img/img_d/20160919083301_20.jpg' %}" />
+	            						</li>
+	            						<li>
+	            							<img src="{% static 'img/img_d/20160919083301_21.jpg' %}" />
+	            						</li>
+	            					</ul>
+								</div>
+							</div>
+
+                            {% else %}
+                                <div class="details_top_img">
+                                    <img src="{% static show_product.showimg %}" class="smallImg" id="d_img1"/>
+                                    <div id="smallArea" style="display: block; width: 100px; height: 100px; background: rgba(200, 255, 200, 0.3); position: absolute; left: 75px; top: 90px;" >
+                                    </div>
+                                </div>
+                                <div id="bigArea">
+                                    <img src="{% static show_product.showimg %}" class="bigImg"/>
+                                </div>
+                                <div class="details_top_img_s">
+								<div id="sleft" class="sleft"><i></i></div>
+        						<div id="sright" class="sright"><i></i></div>
+        						<div id="slist" class="slist">
+	            					<ul style="width: 304px;">
+	            						<li class="hover">
+	            							<img src="{% static show_product.showimg %}" />
+	            						</li>
+	            					</ul>
+								</div>
+							</div>
+
+							{% endif %}
+							
+
+							<div class="details_top_share_collect">
+								<div id="share">
+									<i class="details_top_share"></i>
+									<span>分享</span>
+									<span class="share_s">
+										<a href="#"><i class="sina" title="微博"></i></a>									
+										<a href="#"><i class="qq" title="QQ空间"></i></a>										
+										<a href="#"><i class="weixin"></i></a>
+										<a href="#" class="weixin_twocode" style="display: none;"><img src="{% static 'img/img_d/weixin.png' %}"/><b>用微信扫描二维码<br>分享至朋友圈</b></a>
+									</span>
+								</div>
+								<div id="col" class="collect" >
+									<i class="details_top_collect"></i>
+									<span>收藏商品（已被26950人收藏）</span>
+									<label>已收藏（已被26951人收藏）</label>
+								</div>
+							</div>
+						</div>	
+						
+						<div class="two_dimension_code">
+    						<img alt="" src="{% static 'img/img_d/weixin.png' %}">
+    						<p>手机扫购，更方便</p>
+						</div>
+    						
+						 <div class="details_top_r float-right">
+						 	<div class="details_top_name">
+						 		<span>{{ show_product.showname }}</span>
+						 		<p>{{ show_product.show_sale }}</p>
+						 	</div>
+						 	
+						 	<div class="details_top_message">
+						 		<div class="details_top_message_price">
+						 			<p class="message_title message_title_name">可得价<b>：</b></p>
+                    				<p class="message_price">￥<span>{{ show_product.showprice }}</span></p>
+                    				
+                    				<p class="message_member_price" id="message_member_price">	            
+            							<i class="i"></i>            
+        							</p>
+        							
+        							<p class="message_price_kd"><b>￥249</b></p>
+        							<p class="message_title">立即节省：</p>
+        							<p class="message_price_save">￥81.00</p>
+        							<p class="message_intergral">
+        								<span class="message_title">赠送积分：</span>
+        								<span class="message_price_save">168积分</span>
+        							</p>									
+						 		</div>
+						 		
+						 		<div class="details_top_message_sales">
+						 			<div class="message_title">促销信息：</div>
+						 			<div class="message_sales">
+						 				<p>
+						 					<b>赠品</b>
+						 					<span>
+						 						<a href="#"><img src="{% static 'img/img_d/message_1.jpg' %}" /></a>
+						 						<label>{{ show_product.show_sale }}</label>
+						 						<label>× 1</label>
+						 					</span>
+						 				</p>
+						 				
+						 				<p>
+						 					<b>满减</b>
+						 					<label>第二盒立减20元</label>
+						 				</p>
+						 				
+						 				<p>
+						 					<b>赠品</b>
+						 					<a href="#"><img src="{% static 'img/img_d/message_2.jpg' %}" /></a>
+						 					<label>满3999元送科沃斯扫地机机器人（限送1）</label>        
+						 				</p>
+						 				
+						 			</div>
+						 		</div>
+						 		
+						 		<div class="details_top_message_integral">
+								    <span class="message_title">商品编号：</span>
+								    <span class="message_price_save">CL131194</span>
+								    <span class="message_title message_title_1">库存状况：</span>
+								    <span class="message_price_save">有库存</span>
+								</div>						 		
+						 	</div>
+						 	
+						 	<div class="details_top_select">
+						 		<div class="details_top_select_l_r">
+						 			<div class="message_title">属性选择：</div>
+						 			<div class="details_select_luminosity">
+							
+						 				<div id="rgd_id" class="classify_l_select_luminosity">
+						 					<p class="classify_l_select_lable">右眼 R</p>
+						 					<p>光度：</p>
+						 					<p class="rgd" id="rgd">
+						 						<label id="rightEyeGd">-1.00</label>
+						 						<i></i>
+						 					</p>
+						 					<p>数量：</p>
+						 					<p class="classify_l_select_minus" id="rsl_minus" >-</p>
+						 					<input class="classify_l_select_input" id="rsl_input" type="text" value="1">
+						 					<p class="classify_l_select_plus" id="rsl_plus" style="margin-left: 0;">+</p>
+						 				</div>
+						 				
+						 				<div id="lgd_id" class="classify_l_select_luminosity">
+						 					<p class="classify_l_select_lable">左眼  L</p>
+						 					<p>光度：</p>
+						 					<p class="lgd" id="lgd">
+						 						<label id="leftEyeGd">-1.00</label>
+						 						<i></i>
+						 					</p>
+						 					<p>数量：</p>
+						 					<p class="classify_l_select_minus" id="lsl_minus" >-</p>
+						 					<input class="classify_l_select_input" id="lsl_input" type="text" value="1">
+						 					<p class="classify_l_select_plus" id="lsl_plus" style="margin-left: 0;">+</p>
+						 				</div>
+						 				
+						 				 <div class="details_inventory">
+						 				 	<b>隐形眼镜度数换算表</b>
+						 				 	<i></i>
+						 				 </div>						 				 
+						 			</div>
+						 			
+						 			<div class="details_btn">
+						 				<div id="buy1" product_id="{{ show_product.id }}" class="details_purchasebtn1">立即购买</div>
+						 				<div id="appendCart" class="details_shoppingbtn">
+						 					<p productid="{{ show_product.id }}" id="appendCart1" >加入购物车</p>
+						 				</div>
+						 			</div>
+						 			
+						 			<div class="details_service">
+								        <div class="message_title">服务承诺：</div>
+								        <div class="service_text"><i class="s_t_1"></i>正品保证</div>
+								        <div class="service_text"><i class="s_t_2"></i>货到付款</div>
+								        <div class="service_text"><i class="s_t_3"></i>30天随心退换</div>
+								        <div class="service_text"><i class="s_t_4"></i>满80免运费</div>
+								    </div>
+						 		</div>
+						 		
+						 		
+						 		<div style="display: none; top: 170px; left: 585px;" class="message_member_prices">
+									<i class="i_0"></i>
+									<p><i class="i_1"></i><span>普通会员价：￥168.00</span></p>
+									<p><i class="i_2"></i><span>水晶会员价：￥168.00</span></p>
+									<p><i class="i_3"></i><span>白银会员价：￥168.00</span></p>
+									<p><i class="i_4"></i><span>黄金会员价：￥168.00</span></p>
+									<p><i class="i_5"></i><span>铂金会员价：￥168.00</span></p>
+									<p><i class="i_6"></i><span>钻石会员价：￥168.00</span></p>
+								</div>
+								
+								<div class="classify_l_select_cont">
+				 					<ul  class="lgd_rgd_select" id="lgd_rgd_select" >
+                                        {% for light in lights %}
+                                            <li>{{ light.light }}</li>
+                                        {% endfor %}
+
+
+				 					</ul>
+						 		</div>
+						 	</div>
+						
+						 
+						 </div>
+					
+					</div>
+				</div>
+			</div>
+			
+			
+			<!--尾部开始-->
+			<div class="footer">
+				<div class="f_top">
+					<img src="{% static 'img/img/nfot-bg-03.gif' %}" />
+				</div>
+
+				<div class="f_middle1">
+					<div class="f_content">
+						<ul>
+							<h4>关于可得</h4>
+							<li><a href="#">公司简介</a></li>
+							<li><a href="#">诚聘英才</a></li>
+							<li><a href="#">媒体报道</a></li>
+						</ul>
+
+						<ul>
+							<h4>新手指南</h4>
+							<li><a href="#">热点问题</a></li>
+							<li><a href="#">会员优惠</a></li>
+							<li><a href="#">礼券号使用</a></li>
+						</ul>
+						<ul>
+							<h4>配镜指南</h4>
+							<li><a href="#">读懂验光单</a></li>
+							<li><a href="#">如何选购隐形眼镜</a></li>
+							<li><a href="#">眼镜学堂</a></li>
+						</ul>
+						<ul>
+							<h4>支付配送</h4>
+							<li><a href="#">款到发货</a></li>
+							<li><a href="#">货到付款</a></li>
+							<li><a href="#">支付方式</a></li>
+						</ul>
+						<ul>
+							<h4>售后服务</h4>
+							<li><a href="#">30天随心退换货服务</a></li>
+							<li><a href="#">如何办理退换货、退款</a></li>
+							<li><a href="#">投诉建议</a></li>
+						</ul>
+
+						<ul>
+							<h4>帮助</h4>
+							<li><a href="#">找回密码</a></li>
+							<li><a href="#">联系我们</a></li>
+							<li><a href="#">快递查询</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="f_middle2">
+					<div class="f_middle2_nav">
+						<a href="#" target="_blank" >联系我们<span>|</span></a>
+			            <a href="#" target="_blank">友情链接<span>|</span></a>
+			            <a href="#" target="_blank">眼镜百科<span>|</span></a>
+			            <a href="#" target="_blank">网站地图<span>|</span></a>
+			            <a href="#" target="_blank">隐私安全</a>
+			        </div>
+            		<p>Copyright 2006-2016 可得眼镜 KEDE.com 版权所有 沪ICP备09062956号 全国服务热线：4006-20-20-20 </p>
+				</div>
+
+				<div class="f_bottom">
+					<a href="#"><img src="{% static 'img/img/foot_icon1.jpg' %}"/><span>网上交易保障中心</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon2.jpg' %}"/><span class="txt1">诚信网站</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon33.png' %}"/><span>网络社会征信网</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon3.jpg' %}"/><span class="txt2">上海工商</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon55.png' %}"/><span>中国眼镜协会会员</span></a>
+					<a href="#"><img src="{% static 'img/img/foot_icon5.jpg' %}"/><span>可得网上海名牌</span></a>
+				</div>
+			</div>
+
+			
+		
+			<div class="pf_right" >
+				<a href="#" class="pf_right_1" id="wpaId3"></a>
+				<a href="#" class="pf_right_2"></a>
+				<a href="#" class="pf_right_3"></a>
+				<a href="#" class="pf_right_4"></a>	
+				<a href="{% url 'cart' %}" class="J-shoping pf_right_5"><label id="pf_right_5">{{ cart_num }}</label></a>
+				<a href="#" class="pf_right_6" style="display: block;"></a>	
+				
+				<div class="pf_ygs"><img src="{% static 'img/img/ygs.png' %}"></div>
+    			<div class="pf_weixin"><img src="{% static 'img/img/pf_weixin.png' %}"></div>
+			</div>
+		
+		</div>
+        <script>
+            $.ajaxSetup({
+                data:{csrfmiddlewaretoken:'{{ csrf_token }}'}
+            })
+        </script>
+	</body>
+</html>

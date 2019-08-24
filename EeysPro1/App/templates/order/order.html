@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		{% load static %}
+        <link rel="shortcut icon" href="{% static 'img/img/favicon.ico' %}" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/order.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/kede.css' %}"/>
+
+		<script src="{% static 'js/jquery-1.12.0.js' %}"></script>
+
+{#    	<script src="{% static 'js/jquery.cookie.js' %}"></script>#}
+    	<script src="{% static 'js/order.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/logoin.js' %}"></script>
+
+
+	</head>
+	<body>
+		<div id="page">
+			<!--页面头部-->
+			<div class="header">
+				<div class="top">
+					<!--头部左侧-->
+					<div class="h_left">
+						<img src="{% static 'img/img/h_icon1.png' %}">
+						<a href="#">收藏可得网</a>
+					</div>
+					<div class="float_left">
+						您好，欢迎光临可得眼镜网！<a href="{% url 'logoin' %}" class="login">登录</a>
+						<a href="{% url 'register' %}" class="register">[免费注册]</a>
+					</div>
+
+					<!--头部右侧菜单栏-->
+					<div class="float_right">
+						<span class="menu_top"><a href="#">我的礼券</a></span>
+						<span class="menu_tab"><a href="#">我的可得<img src="{% static 'img/img/arrow1.png' %}"></a>
+							<ul class="sub_item">
+								<li><a href="{% url 'orderdetail' %}">我的订单</a></li>
+								<li><a href="#">我的收藏</a></li>
+								<li><a href="#">积分兑换</a></li>
+								<li><a href="#">我的验光单</a></li>
+							</ul>
+						</span>
+
+						<span class="menu_tab"><a href="#">帮助中心<img src="{% static 'img/img/arrow1.png' %}"></a>
+							<ul class="sub_item">
+								<li><a href="#">常见问题</a></li>
+								<li><a href="#">退货换货</a></li>
+								<li><a href="#">快递查询</a></li>
+								<li><a href="#">眼镜学堂</a></li>
+								<li><a href="#">礼券使用</a></li>
+							</ul>
+						</span>
+						<span class="line">|</span>
+						<span class="menu_gwc"><img src="{% static 'img/img/h_icon2.png' %}"><a href="{% url 'cart' %}">购物车<b id="gwc_count">0</b>件</a></span>
+						<span class="phone"><img src="{% static 'img/img/h_icon3.png' %}"><a href="#">手机版</a>
+							<img src="{% static 'img/img/h_code.png' %}" id="h_code" />
+						</span>
+						<span id="tel"><img src="{% static 'img/img/h_icon4.png' %}" id="imgs"><a href="#" id="chart">客服电话：4006-20-20-20（9:00-23:45）</a>
+							<div id="chartWay">
+								<p>请选择发起聊天方式：</p>
+								<img src="{% static 'img/img/fancy_close.png' %}" id="close">
+								<div class="tel_img" id="imgs1"><img src="{% static 'img/img/qq.png' %}"></div>
+								<div class="tel_img"><img src="{% static 'img/img/weixin.png' %}"></div>
+								<span>安装QQ</span>
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+
+
+    	<!--购物车step content开始-->
+    		<div class="wide_page_top" id="top">
+    			<div class="cart_content wide_page_top_cont">
+					<div class="logo">
+						<a href="#">
+							<img src="{% static 'img/img/logo.jpg' %}">
+						</a>
+					</div>
+                    <div class="progress_1">确认订单信息</div>
+		            <div class="progress_bg_1"><img src="{% static 'img/img_d/bg .png' %}"/></div>
+		            <div class="progress_2">成功提交订单</div>
+		            <div class="progress_3">购买成功</div>
+				</div>
+			</div>
+            <div class="order_id_time">
+                <p>订单号：<span class="order_num">{{ order.order_id }}</span></p>
+                <p>订单时间：<span class="order_time">{{ order.order_create }}</span></p>
+            </div>
+
+			<div class="cart_content">
+				<div class="cart_table" id="cartContainer">
+		                <ul class="cart_explain">
+                            <li><div class="e_product">商品</div></li>
+                            <li><div class="e_luminosity"></div></li>
+                            <li><div class="e_quantity">数量</div></li>
+                            <li><div class="e_price">单价(元)</div></li>
+                            <li><div class="e_subtotal">小计(元)</div></li>
+
+                        </ul>
+                   
+		            <!--添加商品-->
+		            <div id="cartItemContainer" class="cart_product">
+		            	<div class="cartItemContainer">
+                            {% for product in order_products %}
+                                <div class="cart_product_item">
+
+                                    <ul class="cart_product_ul">
+                                        <li class="product">
+                                            <a href="#">
+                                                <img src="{% static product.goods.showimg %}" alt="">
+                                            </a>
+                                            <lable class="product_name">
+                                                {{ product.goods.showname }}
+                                            </lable>
+                                        </li>
+                                        <li class="quantity" >
+                                            <p class="minus">
+
+                                            </p>
+                                            <input type='text' id= 'quantity_input' value='{{ product.num }}' class="quantity_input"/>
+                                            <p class="plus">
+
+                                            </p>
+                                        </li>
+                                        <li class="price">
+                                            ￥<span class="item_line_height">{{ product.goods.showprice }}</span>
+                                        </li>
+                                        <li class="subtotal">
+                                            ￥<span class="item_line_height"></span>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            {% endfor %}
+                        </div>
+		            </div>
+
+
+
+
+
+				</div>
+
+
+
+
+
+
+
+				<!--结算信息-->
+		        <div class="cart_aggregate" id="settlementInfoContainer">
+		            <div>
+		                <div class="hj_jg">￥<span id="settlementTotalMoney">{{ order.order_price }}</span></div>
+		                <div class="hj_name">商品总价：</div>
+		                <div class="hj_quantity">共<b id="settlementQuantity"></b>件商品</div>
+		            </div>
+		            <div class="clear"></div>
+		            <div>
+		                <div class="yh_jg"><b>-￥</b><b id="settlementPromotionDeduction">0</b></div>
+		                <div class="yh_name" title="量贩、直降、满减的优惠金额">促销优惠：</div>
+		            </div>
+		            <div class="clear"></div>
+		            <div>
+		                <div class="lq_jg"><b>-￥</b><b id="settlementCouponDeduction">0.00</b></div>
+		                <div class="lq_name">礼券优惠：</div>
+		            </div>
+		            <div class="clear"></div>
+		            <div class="aggregate">
+                        <div class="aggregate_btn" id="btnGoToSubmit">付款<b> &gt;</b></div>
+		                <div class="aggregate_zj">总计(不含运费)：<b class="a_zj"><label>￥</label><span id="settlementRealTotalMoney">{{ order.order_price }}</span></b><b class="a_jf" style="display: none;"><span id="settlementTotalScore">0</span><label>积分</label></b></div>
+		            </div>
+                    <div class="aggregate">
+                        <div class="cancel_btn" id="btnGoToSubmit">取消购买<b> &gt;</b></div>
+		            </div>
+
+		        </div>
+			</div>
+
+			<!--登录-->
+			<div id="quickLogin2">
+				<div class="login_zz"></div>
+				<div class="login_cont_bg">
+	        		<div class="login_title">
+	        			<i id="closeLogin"></i>
+	        			您尚未登录
+	        		</div>
+        		<div class="login_cont">
+        			<form id="fLogin" method="post">
+        				<div class="login_text">
+			                <div>
+			                	<a href="{% url 'register' %}" target="_blank">立即注册</a>
+			                </div>
+			                <i></i>
+			                <span>可得会员</span>
+			            </div>
+
+			            <div class="login_inpt">
+			                <i class="name_i"></i>
+			                <input type="text" id="LoginName" name="UserName" value="" placeholder="已注册邮箱/用户名/已验证手机">
+			                <i class="name_close"></i>
+			            </div>
+
+			             <div class="name_remind"></div>
+			            <div class="login_inpt">
+			                <i class="password_i"></i>
+			                <input type="password" id="LoginPwd" name="Password" class="password_input" value="" placeholder="密码">
+			            </div>
+			            <div class="password_remind"></div>
+
+            			<div class="verify" style="display: block;" id="verifyDiv">
+        			 		<input id="loginCode" type="text"  />
+        			 		<div class="verify_div"></div>
+        			 		<div class="verify_txt" style="width: 60px;height: 28px;line-height: 28px;background: #72B7FC;float: left;text-align: center;">换一张</div>
+        			 		<div class="verify_remind"></div>
+            			</div>
+
+            			<div class="remember">
+			                <i class="remember_name_i on" id="btnRememberAccount"></i>
+			                <span>记住账户</span>
+			                <i class="auto_name_i " id="btnAutoLogin"></i>
+			                <span>自动登录</span>
+			                <span class="remember_remind"></span>
+			                <span class="remember_forget"><a href="#">忘记密码？</a></span>
+			            </div>
+
+			            <div class="login_btn">登录</div>
+			            <div class="new_user">新用户？<a href="#">免注册购买</a></div>
+			            <div class="cooperation">
+			                <div class="cooperation_text">使用合作网站账户登录可得：</div>
+			                <div class="cooperation_icon">
+			                    <a href="#"><i class="icon_qq"></i></a>
+			                    <a href="#"><i class="icon_weibo"></i></a>
+			                    <a href="#"><i class="icon_zfb"></i></a>
+			                </div>
+			            </div>
+        			</form>
+        		</div>
+			</div>
+		</div>
+
+
+		</div>
+
+	</body>
+</html>
